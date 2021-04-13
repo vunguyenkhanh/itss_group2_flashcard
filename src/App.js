@@ -92,9 +92,8 @@ class App extends Component {
           editWord = {this.edit}
           deleteWord = {this.delete}/> {/* Delete Button */}
         <ShowWord 
-          displayWord = {displayWord}
-          showFurigana = {this.state.showFurigana}
-          showMeaning = {this.state.showMeaning}/> {/* Show Meaning */}
+          dictionary = {this.state.dictionary}
+        />
       </div>
     );
   }
