@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import ToggleButton from './ToggleButton'
 
 class ShowWord extends Component {
 
@@ -12,7 +11,6 @@ class ShowWord extends Component {
 
 
         {/* */} 
-        <ToggleButton />
       </div>
     );
   }
