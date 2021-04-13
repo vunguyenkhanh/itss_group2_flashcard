@@ -56,11 +56,10 @@ const styles = {
   container: {
     display: 'flex',
     flexDirection: 'row',
-    width: '31%',
+    width: '32%',
     backgroundColor: '#fff',
     boxShadow: "0px 1px 11px -2px #9E9E9E",
     marginTop: 20,
-    marginRight: 25,
     borderRadius: 10,
     paddingRight: 10,
     paddingBottom: 10,

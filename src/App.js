@@ -81,7 +81,9 @@ class App extends Component {
     console.log(this.state.dictionary)
     return (
       <div className="App">
-        <FindButton /> 
+        <FindButton
+          dictionary = {this.state.dictionary} 
+        /> 
         <AddButton 
           addWord = {this.addWord}
         /> 
