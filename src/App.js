@@ -45,7 +45,7 @@ class App extends Component {
     let dictionary = this.state.dictionary
     let maxID = dictionary[dictionary.length-1].id
     dictionary[dictionary.length] = {
-      id : maxID + 1,
+      id : this.state.idGenerator,
       kanji : newKanji,
       furigana : newFurigana,
       meaning : newMeaning
