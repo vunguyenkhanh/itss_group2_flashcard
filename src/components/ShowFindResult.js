@@ -9,7 +9,7 @@ class ShowFindResult extends Component {
             margin: '10px',
             padding: '5px',
             background: '#ccffcc',
-            height:'21vh',
+            height:'100%',
           };
           const dStyle = {
             cursor: 'pointer'
