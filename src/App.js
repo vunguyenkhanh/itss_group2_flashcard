@@ -50,7 +50,8 @@ class App extends Component {
       furigana : newFurigana,
       meaning : newMeaning
     }
-    this.setState({dictionary})
+    let idGenerator = this.state.idGenerator + 1
+    this.setState({dictionary, idGenerator})
     console.log(dictionary)
   }
   
