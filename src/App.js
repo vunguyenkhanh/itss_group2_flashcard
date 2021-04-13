@@ -1,25 +1,88 @@
-import logo from './logo.svg';
+import React, { Component } from 'react';
 import './App.css';
+import 'bootstrap/dist/css/bootstrap.css';
+import FindButton from './components/FindButton'
+import ShowWord from './components/showWord/ShowWord'
+import AddButton from './components/AddButton'
+import EditButton from './components/EditButton'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component {
+
+  state = {
+    dictionary: [
+      {
+        id: 1,
+        kanji: '犬',
+        furigana: 'inu',
+        meaning: 'dog'
+      },
+      {
+        id: 2,
+        kanji: '猫',
+        furigana: 'neko',
+        meaning: 'cat'
+      },
+      {
+        id: 3,
+        kanji: '鳥',
+        furigana: 'tori',
+        meaning: 'bird'
+      },
+      {
+        id: 4,
+        kanji: '犬',
+        furigana: 'inu',
+        meaning: 'dog'
+      }
+    ],
+    idGenerator: 5,
+    showFurigana: true,
+    showMeaning: true,
+    displayWordID: 1
+  }
+
+  edit = (newKanji, newFurigana, newMeaning) => {
+    let dictionary = this.state.dictionary
+    let index = dictionary.findIndex((element) => {
+      return element.id = this.state.displayWordID
+    })
+    dictionary[index] = {
+      id: this.state.displayWordID,
+      kanji: newKanji,
+      furigana: newFurigana,
+      meaning: newMeaning
+    }
+    this.setState({ dictionary })
+  }
+
+  delete = () => {
+    let dictionary = this.state.dictionary
+    dictionary = dictionary.filter((element) => {
+      return element.id !== this.state.displayWordID
+    })
+    this.setState({ dictionary: dictionary, displayWordID: dictionary[0].id})
+  }
+
+  render() {
+    var displayWord = this.state.dictionary.find(((element) => {
+      return element.id === this.state.displayWordID
+    }))
+
+    return (
+      <div className="App">
+        <FindButton />
+        <AddButton /> {/* Add Button */}
+        <EditButton 
+          displayWord = {displayWord} 
+          editWord = {this.edit}
+          deleteWord = {this.delete}/> {/* Delete Button */}
+        <ShowWord 
+          displayWord = {displayWord}
+          showFurigana = {this.state.showFurigana}
+          showMeaning = {this.state.showMeaning}/> {/* Show Meaning */}
+      </div>
+    );
+  }
 }
 
 export default App;
