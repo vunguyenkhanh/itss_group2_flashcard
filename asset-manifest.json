@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.css": "/itss_group2_flashcard/static/css/main.2bed9089.chunk.css",
+    "main.js": "/itss_group2_flashcard/static/js/main.9f5be666.chunk.js",
+    "main.js.map": "/itss_group2_flashcard/static/js/main.9f5be666.chunk.js.map",
+    "runtime-main.js": "/itss_group2_flashcard/static/js/runtime-main.9de7c83e.js",
+    "runtime-main.js.map": "/itss_group2_flashcard/static/js/runtime-main.9de7c83e.js.map",
+    "static/css/2.ef9168ec.chunk.css": "/itss_group2_flashcard/static/css/2.ef9168ec.chunk.css",
+    "static/js/2.8455b475.chunk.js": "/itss_group2_flashcard/static/js/2.8455b475.chunk.js",
+    "static/js/2.8455b475.chunk.js.map": "/itss_group2_flashcard/static/js/2.8455b475.chunk.js.map",
+    "static/js/3.178e601d.chunk.js": "/itss_group2_flashcard/static/js/3.178e601d.chunk.js",
+    "static/js/3.178e601d.chunk.js.map": "/itss_group2_flashcard/static/js/3.178e601d.chunk.js.map",
+    "index.html": "/itss_group2_flashcard/index.html",
+    "static/css/2.ef9168ec.chunk.css.map": "/itss_group2_flashcard/static/css/2.ef9168ec.chunk.css.map",
+    "static/css/main.2bed9089.chunk.css.map": "/itss_group2_flashcard/static/css/main.2bed9089.chunk.css.map",
+    "static/js/2.8455b475.chunk.js.LICENSE.txt": "/itss_group2_flashcard/static/js/2.8455b475.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.9de7c83e.js",
+    "static/css/2.ef9168ec.chunk.css",
+    "static/js/2.8455b475.chunk.js",
+    "static/css/main.2bed9089.chunk.css",
+    "static/js/main.9f5be666.chunk.js"
+  ]
+}
