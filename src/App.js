@@ -4,10 +4,9 @@ import 'bootstrap/dist/css/bootstrap.css';
 import FindButton from './components/FindButton'
 import ShowWord from './components/showWord/ShowWord'
 import AddButton from './components/AddButton'
-import EditButton from './components/EditButton'
 
 class App extends Component {
-
+  
   state = {
     dictionary: [
       {
@@ -30,38 +29,39 @@ class App extends Component {
       },
       {
         id: 4,
-        kanji: '犬',
-        furigana: 'inu',
-        meaning: 'dog'
+        kanji: '山',
+        furigana: 'yama',
+        meaning: 'mountain'
+      },
+      {
+        id: 5,
+        kanji: '原',
+        furigana: 'gen',
+        meaning: 'source'
       }
-    ],
-    idGenerator: 5,
-    showFurigana: false,
-    showMeaning: false,
-    displayWordID: 1
+    ]
   }
-  
+
   addWord = (newKanji, newFurigana, newMeaning) => {
     let dictionary = this.state.dictionary
-    let maxID = dictionary[dictionary.length-1].id
+    let newID = this.state.dictionary[this.state.dictionary.length-1].id + 1
     dictionary[dictionary.length] = {
-      id : this.state.idGenerator,
+      id : newID,
       kanji : newKanji,
       furigana : newFurigana,
       meaning : newMeaning
     }
-    let idGenerator = this.state.idGenerator + 1
-    this.setState({dictionary, idGenerator})
-    console.log(dictionary)
+    
+    this.setState({ dictionary })
   }
-  
-  edit = (newKanji, newFurigana, newMeaning) => {
+
+  edit = (id, newKanji, newFurigana, newMeaning) => {
     let dictionary = this.state.dictionary
     let index = dictionary.findIndex((element) => {
-      return element.id = this.state.displayWordID
+      return element.id === id
     })
     dictionary[index] = {
-      id: this.state.displayWordID,
+      id: id,
       kanji: newKanji,
       furigana: newFurigana,
       meaning: newMeaning
@@ -69,31 +69,26 @@ class App extends Component {
     this.setState({ dictionary })
   }
 
-  delete = () => {
+  delete = (id) => {
     let dictionary = this.state.dictionary
     dictionary = dictionary.filter((element) => {
-      return element.id !== this.state.displayWordID
+      return element.id !== id
     })
     this.setState({ dictionary: dictionary, displayWordID: dictionary[0].id})
   }
 
   render() {
-    var displayWord = this.state.dictionary.find(((element) => {
-      return element.id === this.state.displayWordID
-    }))
-
+    console.log(this.state.dictionary)
     return (
       <div className="App">
-        <FindButton />
+        <FindButton /> 
         <AddButton 
           addWord = {this.addWord}
-        />
-        <EditButton 
-          displayWord = {displayWord} 
-          editWord = {this.edit}
-          deleteWord = {this.delete}/> {/* Delete Button */}
+        /> 
         <ShowWord 
           dictionary = {this.state.dictionary}
+          editWord = {this.edit}
+          deleteWord = {this.delete}
         />
       </div>
     );

@@ -15,22 +15,23 @@ const EditButton = (props) => {
   const toggle = () => setModal(!modal);
 
   function edit() {
-    editWord(newWord.kanji, newWord.furigana, newWord.meaning)
+    editWord(displayWord.id, newWord.kanji, newWord.furigana, newWord.meaning)
     toggle()
   }
 
   function deleteTarget() {
-    deleteWord()
+    deleteWord(displayWord.id)
     toggle()
   }
 
   function updateInput(e) {
     newWord[e.target.name] = e.target.value
+    console.log(newWord)
   }
 
   return (
     <div>
-      <Button color="primary" onClick={toggle}>Edit</Button>
+      <Button color="primary" onClick={toggle}>Edit | Delete</Button>
       <Modal isOpen={modal} toggle={toggle} className={displayWord.id.toString()}>
         <ModalBody>
           <Form>
@@ -49,7 +50,7 @@ const EditButton = (props) => {
               <Col sm={9}><Input type="text" name="meaning" id="taskID" placeholder={displayWord.meaning} onChange={updateInput}></Input></Col>
             </FormGroup>
           </Form>
-
+          
         </ModalBody>
         <ModalFooter>
           <Button color="primary" onClick={edit}>Update</Button>{' '}

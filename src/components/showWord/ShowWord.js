@@ -8,12 +8,16 @@ class ShowWord extends Component {
     const {dictionary} = this.props;
     return (
       <div style={styles.container} className="grid">
-        {/* Hien thi tu o day */}
         {
-          dictionary.map((item, index) => (
-            <Word word={item} key={index}/>
-          ))
+          dictionary.map((item, index) => {
+            return (
+              <Word word={item} key={index}
+              editWord = {this.props.editWord}
+              deleteWord = {this.props.deleteWord}/>
+            )
+          })
         }
+
 
       </div>
     );
